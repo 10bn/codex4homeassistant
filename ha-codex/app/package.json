@@ -1,0 +1,13 @@
+{
+  "name": "ha-codex-addon",
+  "version": "0.0.1",
+  "description": "Minimal Home Assistant Ingress add-on backend for HA Codex",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

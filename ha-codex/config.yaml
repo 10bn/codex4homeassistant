@@ -1,0 +1,21 @@
+name: HA Codex
+slug: ha_codex
+version: 0.0.1
+description: Minimal Ingress add-on for viewing Home Assistant config and state.
+url: https://github.com/10bn/codex4homeassistant
+startup: services
+boot: auto
+arch:
+  - amd64
+  - aarch64
+ingress: true
+ingress_stream: true
+ingress_port: 8099
+panel_icon: mdi:robot
+panel_title: HA Codex
+homeassistant_api: true
+hassio_api: false
+map:
+  - type: homeassistant_config
+    read_only: false
+init: false
