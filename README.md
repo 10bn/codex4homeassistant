@@ -41,7 +41,7 @@ This first version intentionally avoids destructive write flows to keep behavior
 1. Commit and push this repository to GitHub.
 2. In Home Assistant, go to **Settings → Add-ons → Add-on Store → ⋮ (top-right) → Repositories**.
 3. Add your repository URL, for example:
-   `https://github.com/<your-user>/<your-repo>`
+   `https://github.com/10bn/codex4homeassistant`
 4. Refresh the Add-on Store.
 
 ---
@@ -95,9 +95,6 @@ This first version intentionally avoids destructive write flows to keep behavior
 ## Manual Placeholders to Replace
 
 - `repository.yaml`
-  - `url`
-  - `maintainer`
-- `ha-codex/config.yaml`
-  - `url`
+  - `maintainer` (optional if you want your preferred contact address)
 
-Replace these with your real GitHub repository and maintainer details before publishing.
+Repository URLs are now set to `https://github.com/10bn/codex4homeassistant`.

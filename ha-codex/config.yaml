@@ -2,7 +2,7 @@ name: HA Codex
 slug: ha_codex
 version: 0.0.1
 description: Minimal Ingress add-on for viewing Home Assistant config and state.
-url: https://github.com/REPLACE_WITH_YOUR_GITHUB_USER/ha-codex-addon-repo
+url: https://github.com/10bn/codex4homeassistant
 startup: services
 boot: auto
 arch:
