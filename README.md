@@ -66,7 +66,7 @@ Then HA cannot access the repository anonymously (usually private repo). Make it
 
 ---
 
-## Konfigurationsoptionen
+## Configuration Options
 
 In the add-on **Configuration** tab:
 
@@ -84,19 +84,46 @@ In the add-on **Configuration** tab:
 ## API Endpoints (v1)
 
 - `GET /api/ping`
+  - Health check endpoint.
 - `GET /api/options`
-- `GET /api/config` → `http://supervisor/core/api/config`
-- `GET /api/entities` → `http://supervisor/core/api/states` (slimmed + limited)
-- `GET /api/files` → lists top-level `/config`
-- `POST /api/test/write` → optional isolated write test (requires `allow_test_write: true`)
+  - Returns current add-on options.
+- `GET /api/config`
+  - Fetches data from `http://supervisor/core/api/config` using:
+    - `Authorization: Bearer ${SUPERVISOR_TOKEN}`
+- `GET /api/entities`
+  - Fetches states from `http://supervisor/core/api/states`.
+  - Returns a slimmed response (`entity_id`, `state`, `last_changed`, `friendly_name`).
+  - Capped at `max_entities`.
+- `GET /api/files`
+  - Lists top-level entries from `/config` safely (name + type only).
+- `POST /api/test/write`
+  - Optional isolated write test (requires `allow_test_write: true`).
 
 All Supervisor calls use `Authorization: Bearer ${SUPERVISOR_TOKEN}`.
 
 ---
 
-## What to build next
+## Notes on Safety / Extensibility
 
-- Add `/api/codex/plan` read-only planning route.
-- Add explicit authz + auditing before any real write routes.
-- Add endpoint-level integration tests.
-- Add websocket/streaming UX improvements.
+- `/config` is mounted read/write in add-on config, but UI/API behavior in v1 is read-focused.
+- The only write path (`/api/test/write`) is explicitly opt-in via `allow_test_write` option.
+- `server.js` includes TODO markers for a future `/api/codex/*` namespace (e.g. `/api/codex/plan`).
+
+---
+
+## What to Build Next
+
+- Add a dedicated `/api/codex/plan` endpoint (read-only planning first).
+- Add role-guarded write endpoints (explicitly opt-in).
+- Add schema validation and request logging middleware.
+- Add integration tests for ingress/API behavior.
+- Add optional long-poll or websocket stream handling for richer UI updates.
+
+---
+
+## Manual Placeholders to Replace
+
+- `repository.yaml`
+  - `maintainer` (optional if you want your preferred contact address)
+
+Repository URLs are now set to `https://github.com/10bn/codex4homeassistant`.
