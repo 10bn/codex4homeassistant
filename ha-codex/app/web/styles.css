@@ -6,6 +6,8 @@
   --text: #e6ebf2;
   --accent: #5aa9ff;
   --accent-2: #2f74d0;
+  --warn: #c77b1d;
+  --warn-2: #8a4e00;
   --border: #2a3342;
 }
 
@@ -21,7 +23,7 @@ body {
 }
 
 .container {
-  max-width: 920px;
+  max-width: 980px;
   margin: 0 auto;
   padding: 1.25rem;
 }
@@ -53,6 +55,15 @@ button {
   font-weight: 600;
 }
 
+button.warn {
+  background: linear-gradient(180deg, var(--warn), var(--warn-2));
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 button.secondary {
   background: transparent;
   color: var(--text);
@@ -73,7 +84,7 @@ button.secondary {
 
 pre {
   margin: 0.75rem 0 0;
-  max-height: 60vh;
+  max-height: 62vh;
   overflow: auto;
   background: #0f141d;
   border: 1px solid var(--border);

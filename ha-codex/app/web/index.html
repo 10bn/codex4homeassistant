@@ -4,20 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>HA Codex</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="container">
       <header>
         <h1>HA Codex</h1>
-        <p>Minimal Home Assistant Ingress app (read-focused v1).</p>
+        <p>Ingress-native Home Assistant helper (safe read-focused first version).</p>
       </header>
 
       <section class="actions">
-        <button data-endpoint="/api/ping">Ping</button>
-        <button data-endpoint="/api/config">Load config</button>
-        <button data-endpoint="/api/entities">Load entities</button>
-        <button data-endpoint="/api/files">List /config</button>
+        <button data-endpoint="api/ping">Ping</button>
+        <button data-endpoint="api/options">Load options</button>
+        <button data-endpoint="api/config">Load config</button>
+        <button data-endpoint="api/entities">Load entities</button>
+        <button data-endpoint="api/files">List /config</button>
+        <button id="testWriteBtn" class="warn">Test write</button>
       </section>
 
       <section class="panel">
@@ -29,6 +31,6 @@
       </section>
     </main>
 
-    <script src="/app.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>

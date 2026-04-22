@@ -1,7 +1,7 @@
 name: HA Codex
 slug: ha_codex
-version: 0.0.1
-description: Minimal Ingress add-on for viewing Home Assistant config and state.
+version: 0.1.0
+description: Ingress add-on for exploring Home Assistant config/state with a safe read-focused UI.
 url: https://github.com/10bn/codex4homeassistant
 startup: services
 boot: auto
@@ -14,8 +14,17 @@ ingress_port: 8099
 panel_icon: mdi:robot
 panel_title: HA Codex
 homeassistant_api: true
-hassio_api: false
 map:
   - type: homeassistant_config
     read_only: false
+options:
+  debug: false
+  max_entities: 250
+  allow_test_write: false
+  test_write_filename: ha_codex_test.txt
+schema:
+  debug: bool
+  max_entities: int(10,2000)
+  allow_test_write: bool
+  test_write_filename: str?
 init: false
