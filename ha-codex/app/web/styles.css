@@ -38,6 +38,11 @@ header p {
   color: var(--muted);
 }
 
+header .version {
+  margin-top: 0.2rem;
+  font-size: 0.92rem;
+}
+
 .actions {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
