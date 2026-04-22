@@ -1,6 +1,7 @@
 'use strict';
 
 const outputEl = document.getElementById('output');
+const versionBadgeEl = document.getElementById('versionBadge');
 const clearBtn = document.getElementById('clearBtn');
 const testWriteBtn = document.getElementById('testWriteBtn');
 const actionButtons = Array.from(document.querySelectorAll('button[data-endpoint]'));
@@ -30,6 +31,9 @@ async function callEndpoint(endpoint) {
 
     if (endpoint === 'api/options' && payload.ok) {
       cachedOptions = payload.data;
+      if (versionBadgeEl) {
+        versionBadgeEl.textContent = payload.version || 'unknown';
+      }
       testWriteBtn.disabled = !payload.data.allow_test_write;
       testWriteBtn.title = payload.data.allow_test_write ? '' : 'Enable allow_test_write in add-on options first';
     }

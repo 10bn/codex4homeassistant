@@ -8,6 +8,7 @@ const { URL } = require('url');
 const HOST = '0.0.0.0';
 const PORT = Number(process.env.PORT || 8099);
 const SUPERVISOR_TOKEN = process.env.SUPERVISOR_TOKEN;
+const APP_VERSION = process.env.BUILD_VERSION || process.env.APP_VERSION || '0.1.1';
 const CONFIG_DIR = '/config';
 const OPTIONS_FILE = '/data/options.json';
 const WEB_DIR = path.join(__dirname, 'web');
@@ -122,11 +123,16 @@ async function handleApi(req, res, pathname) {
   const options = await loadOptions();
 
   if (pathname === '/api/ping' && req.method === 'GET') {
-    return json(res, 200, { ok: true, message: 'pong', timestamp: new Date().toISOString() });
+    return json(res, 200, {
+      ok: true,
+      message: 'pong',
+      version: APP_VERSION,
+      timestamp: new Date().toISOString()
+    });
   }
 
   if (pathname === '/api/options' && req.method === 'GET') {
-    return json(res, 200, { ok: true, data: options });
+    return json(res, 200, { ok: true, version: APP_VERSION, data: options });
   }
 
   if (pathname === '/api/config' && req.method === 'GET') {

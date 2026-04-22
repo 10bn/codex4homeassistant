@@ -1,6 +1,6 @@
 name: HA Codex
 slug: ha_codex
-version: 0.1.0
+version: 0.1.1
 description: Ingress add-on for exploring Home Assistant config/state with a safe read-focused UI.
 url: https://github.com/10bn/codex4homeassistant
 startup: services
